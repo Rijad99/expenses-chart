@@ -1,0 +1,212 @@
+/* Font */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+
+
+/* Variables */
+
+/* Primary */
+$softRed: hsl(10, 79%, 65%);
+$cyan: hsl(186, 34%, 60%);
+/* Neutral */
+$darkBrown: hsl(25, 47%, 15%);
+$mediumBrown: hsl(28, 10%, 53%);
+$cream: hsl(27, 66%, 92%);
+$veryPaleOrange: hsl(33, 100%, 98%);
+
+
+
+/* Reset */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $cream;
+    font-family: "Poppins", sans-serif;
+    overflow: hidden;
+}
+
+
+
+/* Card */
+
+.card {
+    padding: 1.25rem 1.5rem;
+    width: 375px;
+    border-radius: 0.85rem;
+}
+
+.balance {
+    background-color: $softRed;
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: space-between;
+    color: $veryPaleOrange;
+
+    small {
+        font-size: 0.7rem;
+    }
+
+    h3 {
+        font-weight: 500;
+        font-size: 1.4rem;
+    }
+
+    .logo {
+        width: 3.5rem;
+    }
+}
+
+.spending {
+    background-color: $veryPaleOrange;
+
+    h3 {
+        font-weight: 600;
+        font-size: 1.4rem;
+    }
+
+    .charts {
+        padding: 2.5rem 0;
+        border-bottom: 1px solid $cream;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+
+        li {
+            list-style-type: none;
+        }
+
+        .chart {
+            width: 2.35rem;
+            display: flex;
+            justify-content: center;
+            height: 1rem;
+            border-radius: 0.25rem;
+            position: relative;
+            cursor: pointer;
+
+            .day {
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+                bottom: -1.15rem;
+                font-size: 0.6rem;
+                font-weight: 500;
+                color: $mediumBrown;
+            }
+
+            &:before {
+                content: "";
+                display: block;
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: $veryPaleOrange;
+                opacity: 0;
+                transition: all 300ms ease-in-out;
+            }
+
+            &:hover:before {
+                opacity: 0.3;
+            }
+
+            &:hover .tooltip {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .tooltip {
+            position: absolute;
+            top: -2rem;
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: $veryPaleOrange;
+            background-color: $darkBrown;
+            padding: 0.25rem;
+            border-radius: 0.25rem;
+            transition: all 300ms ease-in-out;
+            transform: translateY(1.5rem);
+            opacity: 0;
+        }
+    }
+
+    .total-this-month {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 1rem;
+
+        .box:first-child {
+
+            small {
+                font-size: 0.6rem;
+                font-weight: 500;
+                color: $mediumBrown;
+            }
+
+            h2 {
+                font-size: 1.8rem;
+                line-height: 1.1;
+            }
+        }
+
+        .box:last-child {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-end;
+
+            small:first-child {
+                font-size: 0.75rem;
+                font-weight: 600;
+                line-height: 1.1;
+            }
+
+            small:last-child {
+                font-size: 0.6rem;
+                font-weight: 500;
+                color: $mediumBrown;
+            }
+        }
+    }
+}
+
+.chart.soft-red {
+    background-color: $softRed;
+}
+
+.chart.cyan {
+    background-color: $cyan;
+}
+
+.chart.current-day {
+
+    &:before {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: $veryPaleOrange !important;
+        opacity: 0.3 !important;
+    }
+
+    .tooltip {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../scss/expenses_chart.css">
+
+    <title>Expenses Chart Component</title>
+
+</head>
+
+<body>
+    
+    <div class="container">
+        <div class="card balance">
+            <div class="box">
+                <small>My Balance</small>
+                <h3 id="myBalance">$921.48</h3>
+            </div>
+            <img src="../../images/logo.svg" class="logo" />
+        </div>
+
+        <div class="card spending">
+            <h3>Spending - Last 7 days</h3>
+
+            <ul id="charts" class="charts"></ul>
+
+            <div class="total-this-month">
+                <div class="box">
+                    <small>Total this month</small>
+                    <h2 id="total-this-month">$478.33</h2>
+                </div>
+
+                <div class="box">
+                    <small>+2.4%</small>
+                    <small>from last month</small>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/expenses_chart.js"></script>
+
+</body>
+
+</html>
